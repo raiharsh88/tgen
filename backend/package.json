@@ -1,0 +1,49 @@
+{
+  "module": "true",
+  "scripts": {
+    "build-plugin": "tsup src/extractor/custom-rules/index.ts --no-splitting --minify"
+  },
+  "devDependencies": {
+    "@types/babel__generator": "^7.6.8",
+    "@types/babel__traverse": "^7.20.5",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.25",
+    "@typescript-eslint/parser": "^7.1.1",
+    "eslint-plugin-custom-rules": "^0.0.0",
+    "eslint-plugin-index": "^1.1.7",
+    "execa": "^8.0.1",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "ts-jest": "^29.1.2",
+    "ts-loader": "^9.5.1",
+    "ts-transformer-keys": "^0.4.4",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.3"
+  },
+  "dependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/generator": "^7.24.1",
+    "@babel/parser": "^7.24.0",
+    "@babel/plugin-transform-typescript": "^7.23.6",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/preset-typescript": "^7.23.3",
+    "@babel/traverse": "^7.24.0",
+    "@babel/types": "^7.24.0",
+    "@putout/plugin-remove-unused-variables": "^9.0.0",
+    "@types/amqplib": "^0.10.5",
+    "@types/uuid": "^9.0.8",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/utils": "^7.2.0",
+    "amqplib": "^0.10.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "dotenv": "^16.4.5",
+    "eslint-plugin-unused-imports": "^3.1.0",
+    "i": "^0.3.7",
+    "lodash": "^4.17.21",
+    "npm": "^10.5.0",
+    "recast": "^0.23.6",
+    "uuid": "^9.0.1"
+  }
+}

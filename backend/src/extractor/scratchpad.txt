@@ -1,0 +1,126 @@
+ // VariableDeclaration(path: NodePath<babel.types.AssignmentExpression>) {
+        //     // Check if the assignment is to a function declaration
+        //     console.log('AssignmentExpression', path.parent.type, path.node.declarations?.[0].init?.type,path.node?.left?.type, path.node?.right?.name)
+        //     if (path.parent.type == 'Program' &&
+        //         path.node.left.type === 'Identifier' &&
+        //         path.node.right.type === 'Identifier' &&
+        //         path.node.right.name !== 'undefined' // Ignore assignments to undefined
+        //     ) {
+        //         const assignedFunctionName = path.node.right.name;
+        //         const functionDeclarationPath = path.scope.getBinding(assignedFunctionName);
+        //         console.log('Functions declaration' , functionDeclarationPath)
+        //         // if (
+        //         //     functionDeclarationPath &&
+        //         //     functionDeclarationPath.node.type === 'FunctionDeclaration'
+        //         // ) {
+
+        //         // }
+        //     }
+        // },
+
+        // Identifier(path:NodePath<babel.types.Identifier>) {
+        //     const name = path.node.name;
+        //     if (!path.scope.hasBinding(name)) {
+        //         dependencies.add(name);
+        //     }
+        // },
+  // FunctionDeclaration(path:NodePath<babel.types.FunctionDeclaration>) {
+        //     // Function declaration
+        //     declarations.push(path.node.id.name);
+        // },
+        // ClassDeclaration(path:NodePath<babel.types.>) {
+        //     // Class declaration
+        //     declarations.push(path.node.id.name);
+        // },
+        // ImportDeclaration(path:NodePath<babel.types.>) {
+        //     // Import statement
+        //     path.node.specifiers.forEach(specifier => {
+        //         declarations.push(specifier.local.name);
+        //     });
+        // }
+        // ImportExpression(path:NodePath<babel.types.ImportExpression>) {
+
+        // },
+        // CallExpression(path:NodePath<babel.types.CallExpression>) {
+        //     if (t.isIdentifier(path.node.callee)) {
+        //         dependencies.add(path.node.callee.name);
+        //     }
+        // },
+
+        // NewExpression(path:NodePath<babel.types.CallExpression>) {
+        //     if (t.isIdentifier(path.node.callee)) {
+        //         dependencies.add(path.node.callee.name);
+        //     }
+        // },
+
+        // MemberExpression(path:NodePath<babel.types.>) {
+        //     if (t.isIdentifier(path.node.callee)) {
+        //         dependencies.add(path.node.callee.name);
+        //     }
+        // }
+        // VariableDeclaration(path: NodePath<babel.types.VariableDeclaration>) {
+
+        //     if (path.parent.type === 'Program') {
+        //         console.log('VariableDeclaration', path.parent.type, path.node.declarations[0].id?.name, path.node.declarations[0].init?.type)
+
+        //         const generatedCode = babel.transformFromAstSync(
+        //             babel.types.file(babel.types.program([path.node])),
+        //             null,
+        //             { ast: true }
+        //         );
+        //         console.log(generatedCode.code);
+        //     }
+        // },
+        // ExportNamedDeclaration(path: NodePath<babel.types.Node>) {
+        //     console.log('ExportNamedDeclaration', path.parent.type, path.node.declaration?.id?.name, path.node.declaration?.type)
+
+        //     if (path.parent.type === 'Program') {
+        //         const generatedCode = babel.transformFromAstSync(
+        //             babel.types.file(babel.types.program([path.node])),
+        //             null,
+        //             { ast: true }
+        //         );
+        //         console.log(generatedCode.code);
+        //     }
+        // },
+
+        // ExportDefaultDeclaration(path: NodePath<babel.types.FunctionDeclaration>) {
+        //     const generatedCode = babel.transformFromAstSync(
+        //         babel.types.file(babel.types.program([path.node])),
+        //         null,
+        //         { ast: true }
+        //     );
+        //     console.log('ExportDefaultDeclaration', path.parent.type, path.node.declaration.id?.name, path.node.declaration?.type, generatedCode.code)
+        // }
+        // FunctionExpression(path: NodePath<babel.types.FunctionExpression>) {
+        //   if (path.parent.type === 'Program' && path.node.id) {
+        //     const name = path.node.id.name;
+        //     const params = path.node.params.map(param => (param as babel.types.Identifier).name);
+        //     const body = babel.transformFromAstSync(path.node.body, null, {
+        //       presets: [presetEnv, presetTypescript],
+        //       plugins: [pluginTransformTypescript],
+        //     })?.code ?? '';
+        //     functions.push({ name, params, body });
+        //   }
+        // },
+        // ClassMethod(path: NodePath<babel.types.ClassMethod>) {
+        //   const methodName = path.node.key.name;
+        //   const classNode = path.findParent(parentPath => parentPath.isClassDeclaration());
+        //   if (classNode) {
+        //     const className = (classNode.node.id as babel.types.Identifier | null)?.name || 'UnknownClass';
+        //     const params = path.node.params.map(param => (param as babel.types.Identifier).name);
+        //     const body = babel.transformFromAstSync(path.node.body, null, {
+        //       presets: [presetEnv, presetTypescript],
+        //       plugins: [pluginTransformTypescript],
+        //     })?.code ?? '';
+        //     functions.push({ name: `${className}.${methodName}`, params, body });
+        //   }
+        // },
+        // Decorator(path: NodePath<babel.types.Decorator>) {
+        //   const decoratorName = babel.transformSync(path.node.expression)?.code;
+        //   const classNode = path.findParent(parentPath => parentPath.isClassDeclaration());
+        //   if (classNode) {
+        //     const className = (classNode.node.id as babel.types.Identifier | null)?.name || 'UnknownClass';
+        //     functions.push({ name: `@${decoratorName}(${className})`, params: [], body: '' });
+        //   }
+        // },

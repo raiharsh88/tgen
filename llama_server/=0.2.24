@@ -1,0 +1,36 @@
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+## Package Plan ##
+
+  environment location: /home/harsh/anaconda3/envs/llm-1
+
+  added / updated specs:
+    - ctransformers
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ctransformers-0.2.27       |   py39h3d6467e_1         533 KB  conda-forge
+    py-cpuinfo-9.0.0           |   py39h06a4308_0          45 KB
+    ------------------------------------------------------------
+                                           Total:         578 KB
+
+The following NEW packages will be INSTALLED:
+
+  ctransformers      conda-forge/linux-64::ctransformers-0.2.27-py39h3d6467e_1 
+  py-cpuinfo         pkgs/main/linux-64::py-cpuinfo-9.0.0-py39h06a4308_0 
+
+
+Proceed ([y]/n)? 
+
+Downloading and Extracting Packages
+ctransformers-0.2.27 | 533 KB    |            |   0% 
+py-cpuinfo-9.0.0     | 45 KB     |            |   0% [A
+py-cpuinfo-9.0.0     | 45 KB     | ########## | 100% [Actransformers-0.2.27 | 533 KB    | 3          |   3% ctransformers-0.2.27 | 533 KB    | ########## | 100%                                                      
+                                                     [A
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
