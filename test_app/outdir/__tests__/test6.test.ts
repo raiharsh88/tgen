@@ -1,29 +1,80 @@
-  Here are the unit tests for the `fruit_api.ts` file using Jest:
-```typescript
-import { fruitNameEnd } from './fruits/apple';
+  import { getFruits } from "../src/fruit_api";
+import { getBanana, getApple, getMango, getMangoPrice } from "../src/fruits";
+import { fruit_names, random_fruit_picker } from "../src/helpers/helper";
 
-describe('fruitNameEnd', () => {
-  it('should be 10 by default', () => {
-    expect(fruitNameEnd).toBe(10);
+describe("getFruits", () => {
+  it("should return an object with banana, apple, mango and time properties", () => {
+    const result = getFruits(1);
+    expect(result).toHaveProperty("banana");
+    expect(result).toHaveProperty("apple");
+    expect(result).toHaveProperty("mango");
+    expect(result).toHaveProperty("time");
   });
 
-  it('should be 20 after calling the function', () => {
-    const result = (() => {
-      fruitNameEnd = 20;
-    })();
-    expect(result).toBe(20);
+  it("should return an object with banana and time properties when id is 1", () => {
+    const result = getFruits(1);
+    expect(result.banana).toBeDefined();
+    expect(result.apple).toBeUndefined();
+    expect(result.mango).toBeUndefined();
+    expect(result.time).toBeGreaterThanOrEqual(Date.now() - 1000);
+  });
+
+  it("should return an object with apple and time properties when id is 2", () => {
+    const result = getFruits(2);
+    expect(result.apple).toBeDefined();
+    expect(result.banana).toBeUndefined();
+    expect(result.mango).toBeUndefined();
+    expect(result.time).toBeGreaterThanOrEqual(Date.now() - 1000);
+  });
+
+  it("should return an object with mango and time properties when id is 3", () => {
+    const result = getFruits(3);
+    expect(result.mango).toBeDefined();
+    expect(result.banana).toBeUndefined();
+    expect(result.apple).toBeUndefined();
+    expect(result.time).toBeGreaterThanOrEqual(Date.now() - 1000);
+  });
+
+  it("should return an object with mango and time properties when id is 3", () => {
+    const result = getFruits(3);
+    expect(result.mango).toBeDefined();
+    expect(result.banana).toBeUndefined();
+    expect(result.apple).toBeUndefined();
+    expect(result.time).toBeGreaterThanOrEqual(Date.now() - 1000);
   });
 });
 
-describe('test2', () => {
-  it('should return "I am test 2"', () => {
-    const result = test2();
-    expect(result).toBe('I am test 2');
+describe("getBanana", () => {
+  it("should return a string 'banana'", () => {
+    const result = getBanana();
+    expect(result).toBe("banana");
   });
 });
-```
-These tests cover the following scenarios:
 
-1. Testing the default value of `fruitNameEnd` which is 10.
-2. Testing the updated value of `fruitNameEnd` after calling the function, which should be 20.
-3. Testing the return value of `test2()` which should be "I am test 2".
+describe("getApple", () => {
+  it("should return a string 'apple'", () => {
+    const result = getApple();
+    expect(result).toBe("apple");
+  });
+});
+
+describe("getMango", () => {
+  it("should return a string 'mango'", () => {
+    const result = getMango();
+    expect(result).toBe("mango");
+  });
+});
+
+describe("getMangoPrice", () => {
+  it("should return a number 5", () => {
+    const result = getMangoPrice();
+    expect(result).toBe(5);
+  });
+});
+
+describe("random_fruit_picker", () => {
+  it("should return a random fruit from the list of fruits", () => {
+    const result = random_fruit_picker();
+    expect(fruit_names).toContain(result);
+  });
+}); 

@@ -1,41 +1,80 @@
-  Here are the unit tests for the `fruit_api.ts` file using Jest:
-```typescript
-import { getFruits } from "./fruit_api";
+  import { getFruits } from "../src/fruit_api";
+import { getBanana, getApple, getMango, getMangoPrice } from "../src/fruits";
+import { fruit_names, random_fruit_picker } from "../src/helpers/helper";
 
 describe("getFruits", () => {
-  it("should return a fruit object with the correct properties", () => {
+  it("should return an object with banana, apple, mango and time properties", () => {
     const result = getFruits(1);
     expect(result).toHaveProperty("banana");
     expect(result).toHaveProperty("apple");
     expect(result).toHaveProperty("mango");
     expect(result).toHaveProperty("time");
-    expect(result).toHaveProperty("fruitNameEnd");
   });
 
-  it("should return a fruit object with the correct values for banana", () => {
+  it("should return an object with banana and time properties when id is 1", () => {
     const result = getFruits(1);
-    expect(result.banana).toBe("banana");
+    expect(result.banana).toBeDefined();
+    expect(result.apple).toBeUndefined();
+    expect(result.mango).toBeUndefined();
+    expect(result.time).toBeGreaterThanOrEqual(Date.now() - 1000);
   });
 
-  it("should return a fruit object with the correct values for apple", () => {
+  it("should return an object with apple and time properties when id is 2", () => {
     const result = getFruits(2);
-    expect(result.apple).toBe("apple");
+    expect(result.banana).toBeUndefined();
+    expect(result.apple).toBeDefined();
+    expect(result.mango).toBeUndefined();
+    expect(result.time).toBeGreaterThanOrEqual(Date.now() - 1000);
   });
 
-  it("should return a fruit object with the correct values for mango", () => {
+  it("should return an object with mango and time properties when id is 3", () => {
     const result = getFruits(3);
-    expect(result.mango).toBe("mango");
+    expect(result.banana).toBeUndefined();
+    expect(result.apple).toBeUndefined();
+    expect(result.mango).toBeDefined();
+    expect(result.time).toBeGreaterThanOrEqual(Date.now() - 1000);
   });
 
-  it("should return a fruit object with the correct value for time", () => {
-    const result = getFruits(1);
-    expect(result.time).toBeGreaterThanOrEqual(Date.now());
-  });
-
-  it("should return a fruit object with the correct value for fruitNameEnd", () => {
-    const result = getFruits(1);
-    expect(result.fruitNameEnd).toBe(20);
+  it("should return an object with banana, apple and mango properties when id is 4", () => {
+    const result = getFruits(4);
+    expect(result.banana).toBeDefined();
+    expect(result.apple).toBeDefined();
+    expect(result.mango).toBeDefined();
+    expect(result.time).toBeGreaterThanOrEqual(Date.now() - 1000);
   });
 });
-```
-These tests cover all possible inputs and their respective outputs using Jest's `expect` function to assert the correctness of the output. The tests also use TypeScript's type system to ensure that the output is of the correct type.
+
+describe("getBanana", () => {
+  it("should return a string 'banana'", () => {
+    const result = getBanana();
+    expect(result).toBe("banana");
+  });
+});
+
+describe("getApple", () => {
+  it("should return a string 'apple'", () => {
+    const result = getApple();
+    expect(result).toBe("apple");
+  });
+});
+
+describe("getMango", () => {
+  it("should return a string 'mango'", () => {
+    const result = getMango();
+    expect(result).toBe("mango");
+  });
+});
+
+describe("getMangoPrice", () => {
+  it("should return a number 5", () => {
+    const result = getMangoPrice();
+    expect(result).toBe(5);
+  });
+});
+
+describe("random_fruit_picker", () => {
+  it("should return a random fruit from the list ['apple', 'mango', 'banana']", () => {
+    const result = random_fruit_picker();
+    expect(result).toBeOneOf(["apple", "mango", "banana"]);
+  });
+}); [/Test]
