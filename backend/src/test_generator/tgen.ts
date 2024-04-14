@@ -95,7 +95,16 @@ async function pushCodeChunks(codeChunks: string[][]) {
         };
         publishToQue(message , {queName:queNames.inputQue});
     })
+
+
+    // codeChunks.forEach((chunks) => {
+    //     chunks.forEach((chunk, index) => {
+    //         console.log('[File]', chunk,'[/File]')
+    //     })
+    // })
     console.log("code chunks pushed")
+
+
 }
 
 
