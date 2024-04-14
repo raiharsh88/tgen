@@ -4,5 +4,5 @@ frontend/node_modules
 llama_server/node_modules
 models/*
 *experiments*
-
 *__pychache__*
+*.env*
