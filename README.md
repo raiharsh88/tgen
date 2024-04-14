@@ -27,7 +27,7 @@
 
 ```bash
 cd backend
-ts-node argument_parser.js --entryFile "<path_to_entry_file>" --projectDir "<path_to_project_directory>" --aliasMap "{ '@src': '/home/harsh/chat-stocks/test_app/' }" --testDir "<path_to_test_directory>" --fileExtension 'ts'
+ts-node src/app.ts --entryFile "<path_to_entry_file>" --projectDir "<path_to_project_directory>" --aliasMap "{ '@src': '/home/harsh/chat-stocks/test_app/' }" --testDir "<path_to_test_directory>" --fileExtension 'ts'
 ```
 
 ##### Running llama_server
