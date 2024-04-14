@@ -1,5 +1,0 @@
-
-              function GeneratorFunctionPrototype() {
-                [object Object]
-              }
-            

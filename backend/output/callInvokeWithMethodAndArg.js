@@ -1,5 +1,0 @@
-
-              function callInvokeWithMethodAndArg() {
-                [object Object]
-              }
-            

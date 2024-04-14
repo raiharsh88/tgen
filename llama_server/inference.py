@@ -1,7 +1,3 @@
-from langchain_core.callbacks import CallbackManager, StreamingStdOutCallbackHandler
-from langchain.chains import ConversationalRetrievalChain, LLMChain
-from langchain.memory import ConversationSummaryMemory
-
 from langchain.prompts import PromptTemplate
 from langchain_community.llms import LlamaCpp
 import os
@@ -62,7 +58,7 @@ def generate_unit_test(message):
             Files:{context}
             <</SYS>>
             '''
-        template = PromptTemplate(
+        template =                                                                                                                                                                                                                                                                           PromptTemplate(
             input_variables=["context"],
             template=rawTemplate
         )
@@ -91,14 +87,56 @@ def cleanCode(code , message):
         <s>[INST]
         <<SYS>>
         Rewrite all the tests without any comments and explanations, keep all the import and declarations at top followed by the tests and return the result wrapped in [FINAL] and [/FINAL] tags and without explanation.
+        for example when given 
+        Code:{context1}
+
+        Your response:{response1}
         Code:{context}
-        <</SYS>>
+        Your response:
         '''
+    context1 = '''
+    import abc
+        describe("suite 1",() => {
+        ....
+        it("",() => {
+        ....
+        })
+        })
+        some random explanation
+        import xyz
+        describe("suite 2",() => {
+        ....
+        it("",() => {
+        ....
+        })
+        })
+        some more explanation
+        '''
+    response1  = '''
+
+        [FINAL]
+        import abc
+        import xyz
+        describe("suite 1",() => {
+        ....
+        it("",() => {
+        ....
+        })
+        })
+        describe("suite 2",() => {
+        ....
+        it("",() => {
+        ....
+        })
+        })
+
+        [/FINAL]
+        <</SYS>>'''
     template = PromptTemplate(
-        input_variables=["context"],
+        input_variables=["context" ,"context1" , "response1"],
         template=rawTemplate,
     )
-    formattedPrompt = template.format(context=code)+'[/INST]'
+    formattedPrompt = template.format(context=code , context1 = context1 , response1 = response1)+'[/INST]'
     tokens= model.tokenize(bytes(formattedPrompt, encoding='utf8'))
     print('Token count',len(tokens),)
     start = time.time()
